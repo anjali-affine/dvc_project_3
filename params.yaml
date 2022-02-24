@@ -1,5 +1,5 @@
 training:
-  epochs: 3
+  epochs: 20
 
 testing:
   batch_size: 8
