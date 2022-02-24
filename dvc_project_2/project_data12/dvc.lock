@@ -1,0 +1,50 @@
+schema: '2.0'
+stages:
+  training:
+    cmd: python train.py data_12 scores.json loss.json accuracy.json
+    deps:
+    - path: data_12
+      md5: 6e3517d6207d641e77ad8fef1a59f867.dir
+      size: 58421641
+      nfiles: 9855
+    - path: train.py
+      md5: c6f9c9f512ce72c869f84a890219a144
+      size: 4834
+    params:
+      params.yaml:
+        training.epochs: 10
+    outs:
+    - path: accuracy_test.json
+      md5: 69caf4bd4d8daaa882361592341da8de
+      size: 703
+    - path: accuracy_train.json
+      md5: 0f187ca53350cce044e63bc37567d108
+      size: 714
+    - path: loss_test.json
+      md5: bfb9624dbe22935ccb180661115745e7
+      size: 711
+    - path: loss_train.json
+      md5: 5ece163b5637110621183f6b9d171654
+      size: 721
+    - path: saved_model
+      md5: 297d50cd736bddbe2490998b36220df4.dir
+      size: 2803421
+      nfiles: 3
+    - path: scores.json
+      md5: 6e4f5e2ddd97519da0901f4686c0c300
+      size: 73
+  testing:
+    cmd: python test.py saved_model
+    deps:
+    - path: saved_model
+      md5: 297d50cd736bddbe2490998b36220df4.dir
+      size: 2803421
+      nfiles: 3
+    - path: test.py
+      md5: e5fc1375f44d9c5f7d3b0dd1d9e88dc4
+      size: 2662
+    outs:
+    - path: output
+      md5: 215b382c194da8d48e835c05dc0207b1.dir
+      size: 32159
+      nfiles: 1

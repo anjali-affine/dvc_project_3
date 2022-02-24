@@ -1,0 +1,5 @@
+training:
+ epochs: 2
+ 
+testing:
+ batch_size: 8

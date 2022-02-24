@@ -1,0 +1,33 @@
+stages:
+  training:
+    cmd: python train.py data_12 scores.json loss.json accuracy.json
+    deps:
+    - data_12
+    - train.py
+    params:
+    - training.epochs
+    outs:
+    - saved_model
+    metrics:
+    - scores.json:
+        cache: false
+    plots:
+    - accuracy_test.json:
+        cache: false
+        x_label: Epochs
+    - loss_test.json:
+        cache: false
+        x_label: Epochs
+    - accuracy_train.json:
+        cache: false
+        x_label: Epochs
+    - loss_train.json:
+        cache: false
+        x_label: Epochs
+  testing:
+    cmd: python test.py saved_model
+    deps:
+    - saved_model
+    - test.py
+    outs:
+    - output
