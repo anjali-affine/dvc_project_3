@@ -1,4 +1,0 @@
-[core]
-    no_scm = false
-['remote "dvc_storage"']
-    url = C:\Users\anjali\Desktop\dvc_project_2\dvc_storage
