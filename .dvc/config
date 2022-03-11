@@ -1,4 +1,5 @@
 [core]
     no_scm = false
+    autostage = true
 ['remote "dvc_storage"']
     url = C:\Users\anjali\Desktop\dvc_project_2\dvc_storage
